@@ -1,0 +1,2 @@
+Sub SumGroupby()Dim Total As DoubleDim Celda As Double
+Dim Celda2 As DoubleTotal = 0Celda = 3Cells(2, 8).Value = Cells(2, 1).ValueFor i = 3 To 797711    Ticker = Cells(i, 1).Value    If (Ticker <> Cells(Celda - 1, 8).Value) Then        Cells(Celda, 8).Value = Ticker        Celda = Celda + 1    End IfNext iRange("I2").SelectActiveCell.FormulaR1C1 = "=SUMIF(R2C1:R797711C1,RC[-1],R2C7:R797711C7)"Range("I2").SelectSelection.AutoFill Destination:=Range("I2:I" & Range("H" & Rows.Count).End(xlUp).Row)Range(Selection, Selection.End(xlDown)).SelectEnd Sub
